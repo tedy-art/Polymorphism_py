@@ -153,3 +153,59 @@ o/p:
 
 2) Overriding
 I) Method Overriding:-
+    -> Method Overriding in Python is an OOP's concept closely related to 
+       inheritance.
+    -> When a child class Method Overrides(or, provides it's own implementatuion) the parent class method of the same name, parameters and return type, it is known as method Overriding.
+
+parent class --is called--> Overriden method
+child class --is called--> Overriding method
+
+e.g.
+class Parent:
+    def property(self):
+        print("This is parent property..")
+
+    def marry(self): # Overridn method
+        print("Our child will marrry with Girl A..")
+
+
+class Child(Parent):
+    def property1(self):
+        print("This is child's property..")
+
+    def marry(self):  # Overring Parent's method
+        print("I will mary with Girl B..")
+        super().marry()  # Our child will marrry with Girl A..
+
+
+jay = Child()
+jay.property1()
+jay.property()
+jay.marry()
+
+o/p:-
+This is child's property..
+This is parent property..
+I will mary with Girl B..
+Our child will marrry with Girl A..
+
+2) Variable Overriding:-
+    -> Redefining parent class Variable in child class is Variable Overriding
+
+e.g.
+class Parson:
+    def __init__(self, nm, age):
+        self.name = nm
+        self.age = age
+
+class Student(Parson):
+    def __init__(self, nm, age, rl, mks):
+        super().__init__(nm, age)
+        self.roll = rl
+        self.marks = mks
+
+s1 = Student('Jay', 24, 1, 85)
+print(s1.name, s1.age)
+
+o/p:
+    Jay 24
